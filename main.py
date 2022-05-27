@@ -104,12 +104,9 @@ def lambda_handler(event, context):
 
     # return it
     return {
-        'statusCode': 200,
-        'body': json.dumps({
-            "video_title": title, 
-            "video_thumbnail": thumbnail, 
-            "summary": summary
-        })
+        "video_title": title, 
+        "video_thumbnail": thumbnail, 
+        "summary": summary
     }
 
 def main(video_url):
@@ -127,6 +124,6 @@ def main(video_url):
 if __name__ == "__main__":
     video_url = "https://www.youtube.com/watch?v=ecuQdkBx1ic"
     print(
-        lambda_handler(json.dumps({ 'video_url': video_url }), 'foo')
+        lambda_handler({ 'video_url': video_url }, 'foo')
     )
     #asyncio.run(main(video_url))
